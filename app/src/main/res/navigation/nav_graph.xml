@@ -21,7 +21,15 @@
         android:id="@+id/registerFragment"
         android:name="edu.uw.tcss450.mylabappadamhh.ui.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <argument
+            android:name="run"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_registerFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
     <fragment
         android:id="@+id/successFragment"
         android:name="edu.uw.tcss450.mylabappadamhh.ui.SuccessFragment"
@@ -29,9 +37,6 @@
         tools:layout="@layout/fragment_success" >
         <argument
             android:name="email"
-            app:argType="string" />
-        <argument
-            android:name="password"
             app:argType="string" />
     </fragment>
 </navigation>
