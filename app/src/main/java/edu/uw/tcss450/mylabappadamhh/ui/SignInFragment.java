@@ -51,9 +51,12 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     }
 
     public void processRegister() {
-        SignInFragmentDirections.ActionSignInFragmentToRegisterFragment directions =
-                SignInFragmentDirections.actionSignInFragmentToRegisterFragment();
-        Navigation.findNavController(getView()).navigate(directions);
+        //use if you aren't sending safe args
+        Navigation.findNavController(getView()).navigate(SignInFragmentDirections.actionSignInFragmentToRegisterFragment());
+        //use if you are using safe args
+//        SignInFragmentDirections.ActionSignInFragmentToRegisterFragment directions =
+//                SignInFragmentDirections.actionSignInFragmentToRegisterFragment();
+//        Navigation.findNavController(getView()).navigate(directions);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -83,7 +86,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
     public void processSignIn (String emailGreeting) {
         Log.d("Signin", "email  -> " + emailGreeting);
-
+        //empty jwt string emailGreeting, jwt --for sign in credential service
         SignInFragmentDirections.ActionSignInFragmentToSuccessFragment directions =
                 SignInFragmentDirections.actionSignInFragmentToSuccessFragment(emailGreeting);
         //Use the navigate method to perform the navigation.

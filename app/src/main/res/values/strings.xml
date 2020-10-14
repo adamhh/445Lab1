@@ -10,4 +10,5 @@
     <string name="register_password_fragment">Password</string>
     <string name="register_retype_fragment">Retype Password</string>
     <string name="register_register_fragment">Register</string>
+
 </resources>

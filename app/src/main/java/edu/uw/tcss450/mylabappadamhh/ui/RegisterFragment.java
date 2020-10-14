@@ -52,6 +52,12 @@ public class RegisterFragment extends Fragment {
         if (email.isEmpty()) {
             textView.setError(REGISTER_ERROR);
             textView.setText("Email field cannot be empty ");
+        } else if (firstName.isEmpty()) {
+            textView.setError(REGISTER_ERROR);
+            textView.setText("First name field cannot be empty" );
+        } else if (lastName.isEmpty()) {
+            textView.setError(REGISTER_ERROR);
+            textView.setText("Last name field cannot be empty ");
         } else if (password.isEmpty() || passwordConfirmation.isEmpty()) {
             textView.setError(REGISTER_ERROR);
             textView.setText("Password fields cannot be empty ");
