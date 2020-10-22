@@ -51,5 +51,13 @@ public class SignInFragment extends Fragment {
             getActivity().finish();
 
         });
+
+        binding.signinRegId.setOnClickListener(this::handleRegister);
+    }
+
+    private void handleRegister(View view) {
+        SignInFragmentDirections.ActionSignInFragmentToRegisterFragment directions =
+                SignInFragmentDirections.actionSignInFragmentToRegisterFragment();
+        Navigation.findNavController(getView()).navigate(directions);
     }
 }

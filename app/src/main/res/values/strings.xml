@@ -12,8 +12,11 @@
     <string name="register_register_fragment">Register</string>
     <string name="title_home">Home</string>
     <string name="title_blogs">Blogs</string>
+    <string name="title_register">Register</string>
+    <string name="title_success">Success</string>
     <string name="action_link">Full Post</string>
     <string name="action_next">Next</string>
     <string name="text_blank">Blank</string>
+    <string name="title_main">Main Activity</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package edu.uw.tcss450.mylabappadamhh.ui;
+package edu.uw.tcss450.mylabappadamhh.ui.auth;
 
 import android.os.Bundle;
 
@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import edu.uw.tcss450.mylabappadamhh.R;
 import edu.uw.tcss450.mylabappadamhh.databinding.FragmentRegisterBinding;
+import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSignInBinding;
 import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSuccessBinding;
+import edu.uw.tcss450.mylabappadamhh.ui.auth.RegisterFragmentDirections;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,16 +36,15 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.registerButtonId.setOnClickListener(this::handleNewRegister);
-        //Get a reference to the SafeArgs object
-        //RegisterFragmentArgs args = RegisterFragmentArgs.fromBundle(getArguments());
 
-        //Set the text color of the label. NOTE no need to cast
+        //On button click, process registration info
+        binding.registerButtonId.setOnClickListener(this::handleNewRegister);
 
 
     }
 
     public void handleNewRegister(View view) {
+        FragmentRegisterBinding binding = FragmentRegisterBinding.bind(getView());
         String email = binding.registerEmailId.getText().toString();
         String password = binding.registerPasswordId.getText().toString();
         String passwordConfirmation = binding.registerRetypeId.getText().toString();
@@ -71,18 +72,35 @@ public class RegisterFragment extends Fragment {
             textView.setError(REGISTER_ERROR);
             textView.setText("Password must be at least 6 characters");
         } else {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Hello ");
-            sb.append(binding.registerEmailId.getText());
-            this.processNewRegister(sb.toString());
+            Navigation.findNavController(getView()).navigate(
+                    RegisterFragmentDirections
+                            .actionRegisterFragmentToMainActivity(
+                                    binding.registerEmailId.getText().toString(), "Blank For now"
+
+                            ));
+            //This tells the containing Activity that we are done with it.
+            //It will not be added to backstack.
+            getActivity().finish();
+
+
         }
     }
 
-    public void processNewRegister(String emailGreeting) {
-
-//        RegisterFragmentDirections.ActionRegisterFragmentToSuccessFragment directions =
-//                RegisterFragmentDirections.actionRegisterFragmentToSuccessFragment(emailGreeting);
-//        Navigation.findNavController(getView()).navigate(directions);
+    public void processNewRegister() {
+//        FragmentRegisterBinding binding = FragmentRegisterBinding.bind(getView());
+//
+//        //On button click, navigate to MainActivity
+//        binding.registerButtonId.setOnClickListener(button -> {
+//            Navigation.findNavController(getView()).navigate(
+//                    RegisterFragmentDirections
+//                            .actionRegisterFragmentToMainActivity(
+//                                    binding.registerEmailId.getText().toString(), "Blank For now"
+//
+//                            ));
+//            //This tells the containing Activity that we are done with it.
+//            //It will not be added to backstack.
+//            getActivity().finish();
+//
+//        });
     }
-
 }

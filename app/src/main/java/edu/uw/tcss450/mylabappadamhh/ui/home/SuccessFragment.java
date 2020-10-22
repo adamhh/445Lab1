@@ -41,9 +41,12 @@ public class SuccessFragment extends Fragment {
         //holds this fragment.
         UserInfoViewModel model = new ViewModelProvider(getActivity())
                 .get(UserInfoViewModel.class);
-        binding.successId.setText("Welcome Home " + model.getEmail() + "!");
+        binding.successId.setText("Successful Login " + model.getEmail() + "!");
 
 
     }
+
+
+
 
 }
