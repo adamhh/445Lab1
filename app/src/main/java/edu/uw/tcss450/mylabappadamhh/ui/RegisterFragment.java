@@ -79,9 +79,10 @@ public class RegisterFragment extends Fragment {
     }
 
     public void processNewRegister(String emailGreeting) {
-        RegisterFragmentDirections.ActionRegisterFragmentToSuccessFragment directions =
-                RegisterFragmentDirections.actionRegisterFragmentToSuccessFragment(emailGreeting);
-        Navigation.findNavController(getView()).navigate(directions);
+
+//        RegisterFragmentDirections.ActionRegisterFragmentToSuccessFragment directions =
+//                RegisterFragmentDirections.actionRegisterFragmentToSuccessFragment(emailGreeting);
+//        Navigation.findNavController(getView()).navigate(directions);
     }
 
 }
