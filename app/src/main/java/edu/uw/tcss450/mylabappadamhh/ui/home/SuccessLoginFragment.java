@@ -6,23 +6,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.mylabappadamhh.R;
-import edu.uw.tcss450.mylabappadamhh.databinding.FragmentHomeBinding;
-import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSuccessBinding;
+import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSuccessLoginBinding;
 import edu.uw.tcss450.mylabappadamhh.model.UserInfoViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class SuccessLoginFragment extends Fragment {
 
-    public HomeFragment() {
+    public SuccessLoginFragment() {
         // Required empty public constructor
     }
 
@@ -31,7 +29,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_success_login, container, false);
     }
 
     @Override
@@ -39,12 +37,12 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //Local access to the ViewBinding object. No need to create as Instance Var as it is only
         //used here.
-        FragmentHomeBinding binding = FragmentHomeBinding.bind(getView());
+        FragmentSuccessLoginBinding binding = FragmentSuccessLoginBinding.bind(getView());
 
         //Note argument sent to the ViewModelProvider constructor. It is the Activity that
         //holds this fragment.
         UserInfoViewModel model = new ViewModelProvider(getActivity())
                 .get(UserInfoViewModel.class);
-        binding.homeId.setText("Welcome " + model.getEmail() + "!");
+        binding.successId.setText("Welcome " + model.getEmail() + "!");
     }
 }

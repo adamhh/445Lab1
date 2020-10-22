@@ -6,25 +6,33 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class UserInfoViewModel extends ViewModel {
     private String mEmail;
+    private String mJWT;
 
-    private UserInfoViewModel(String email) {
+    private UserInfoViewModel(String email, String jwt) {
+
         mEmail = email;
+        mJWT = jwt;
     }
 
     public String getEmail() {
         return mEmail;
     }
 
+    public String getmJWT() { return mJWT; }
+
     public static class UserInfoViewModelFactory implements ViewModelProvider.Factory {
         private final String email;
-        public UserInfoViewModelFactory(String email) {
+        private final String jwt;
+        public UserInfoViewModelFactory(String email, String jwt) {
+
             this.email = email;
+            this.jwt = jwt;
         }
         @NonNull
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             if (modelClass == UserInfoViewModel.class) {
-                return (T) new UserInfoViewModel(email);
+                return (T) new UserInfoViewModel(email, jwt);
             }
             throw new IllegalArgumentException(
                     "Argument must be: " + UserInfoViewModel.class);

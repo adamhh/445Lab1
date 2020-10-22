@@ -1,4 +1,4 @@
-package edu.uw.tcss450.mylabappadamhh;
+package edu.uw.tcss450.mylabappadamhh.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,6 +18,7 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import edu.uw.tcss450.mylabappadamhh.R;
 import edu.uw.tcss450.mylabappadamhh.model.UserInfoViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,19 +32,20 @@ public class MainActivity extends AppCompatActivity {
         MainActivityArgs args = MainActivityArgs.fromBundle(getIntent().getExtras());
 
         String email = args.getEmail();
+        String jwt = args.getJwt();
 
         //take note that we are not using the constructor explicitly, the no-arg
         //constructor is called implicitly
         new ViewModelProvider(
                 this,
-                new UserInfoViewModel.UserInfoViewModelFactory(email))
+                new UserInfoViewModel.UserInfoViewModelFactory(email, jwt))
                 .get(UserInfoViewModel.class);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_success, R.id.navigation_blogs)
+                R.id.navigation_success_login, R.id.navigation_blogs)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);

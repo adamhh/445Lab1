@@ -15,7 +15,6 @@ import android.widget.TextView;
 import edu.uw.tcss450.mylabappadamhh.R;
 import edu.uw.tcss450.mylabappadamhh.databinding.FragmentRegisterBinding;
 import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSignInBinding;
-import edu.uw.tcss450.mylabappadamhh.databinding.FragmentSuccessBinding;
 import edu.uw.tcss450.mylabappadamhh.ui.auth.RegisterFragmentDirections;
 
 /**
